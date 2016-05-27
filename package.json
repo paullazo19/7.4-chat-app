@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "font-awesome": "^4.6.3",
     "form-serialize": "^0.7.1",
     "jquery": "^2.2.4",
     "react": "^0.14.7",
