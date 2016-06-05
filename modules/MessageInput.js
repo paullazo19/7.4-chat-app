@@ -16,10 +16,19 @@ export default React.createClass({
       messageSource: "http://tiny-tiny.herokuapp.com/collections/paullazo_chat_messages"
     }
   },
+  handleSubmitForm(e){
+    console.log(this.props.messageSource);
+    e.preventDefault();
+    var serializedForm = Serialize(this.refs.messageForm, {hash: true})
+    $.post(this.props.messageSource, serializedForm, (resp)=> {
+      this.props.getMessages();
+      // clear text after input
+      this.refs.input.value="";
+    });
+  },
   render() {
     return (
-
-      <form method="POST" ref="messageForm" action="#" onSubmit={this.props.handleSubmitForm}>
+      <form method="POST" ref="messageForm" action="#" onSubmit={this.handleSubmitForm}>
         <input ref="input" className="log__message--input" type="text" name="message" placeholder="add message" autoComplete="off"/>
       </form>
 

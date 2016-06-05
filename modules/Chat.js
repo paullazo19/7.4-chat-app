@@ -38,16 +38,6 @@ export default React.createClass({
       this.getMessages();
       this.getUsers();
     }, 2000);
-
-  },
-  handleSubmitForm(e){
-    // e.preventDefault();
-    var serializedForm = Serialize(this.refs.messageForm, {hash: true})
-    $.post(this.props.messageSource, serializedForm, (resp)=> {
-      this.getMessages();
-      // clear text after input
-      this.refs.input.value="";
-    });
   },
   handleMessageDelete(e){
     var messageId = ReactDOM.findDOMNode(e.target).parentNode.dataset.id;
@@ -63,8 +53,8 @@ export default React.createClass({
   render() {
     return (
       <article className="chatInterface">
-        <MessageInput handleSubmitForm={this.handleSubmitForm}/>
-        <MessageList getMessages={this.getMessages} handleMessageDelete={this.handleMessageDelete}/>
+        <MessageInput getMessages={this.getMessages}/>
+        <MessageList messages={this.state.messages}  handleMessageDelete={this.handleMessageDelete}/>
       </article>
     )
   }
