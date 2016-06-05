@@ -7,16 +7,17 @@ import App from '../modules/App';
 
 jest.unmock('../modules/App');
 
-describe('Boilerplate', () => {
-
-  it('contains hello text', () => {
-    // This places our component into our test to find off of
-    var appRendered = TestUtils.renderIntoDocument(
+describe('App component', ()=> {
+  var appRendered;
+  beforeEach(()=> {
+    appRendered = TestUtils.renderIntoDocument(
       <App/>
-    )
-    // find h1 on page
-    var heading = TestUtils.findRenderedDOMComponentWithClass(appRendered, "heading");
+    );
+  })
+  it('renders username input', ()=> {
+    var userInput = TestUtils.findRenderedDOMComponentWithClass(appRendered, "log__username--input");
     // assert it has text
-    expect(heading.textContent).toEqual("Hello!");
+    expect(userInput).toBeDefined();
   });
+
 });

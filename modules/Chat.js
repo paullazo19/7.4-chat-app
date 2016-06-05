@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import Serialize from 'form-serialize'
 import App from './App'
+import MessageInput from './MessageInput'
+import MessageList from './MessageList'
 
 export default React.createClass({
   getInitialState(){
@@ -39,7 +41,7 @@ export default React.createClass({
 
   },
   handleSubmitForm(e){
-    e.preventDefault();
+    // e.preventDefault();
     var serializedForm = Serialize(this.refs.messageForm, {hash: true})
     $.post(this.props.messageSource, serializedForm, (resp)=> {
       this.getMessages();
@@ -61,21 +63,8 @@ export default React.createClass({
   render() {
     return (
       <article className="chatInterface">
-        <form method="POST" ref="messageForm" action="#" onSubmit={this.handleSubmitForm}>
-          <input ref="input" className="log__message--input" type="text" name="message" placeholder="add message" autoComplete="off"/>
-        </form>
-        <ul className="log">
-          <li className="log__message">
-            <span className="log__guest">guest 1</span><span className="log__newChannel">joined #new-channel</span>
-          </li>
-          {this.state.messages.map((message, i)=> {
-            return <li key={i} className="log__message" data-id={message._id}>
-                      <span className="log__guest">guest 1</span>
-                      <span className="log__message--display">{message.message}</span>&nbsp;
-                      <i onClick={this.handleMessageDelete} className="fa fa-times-circle log__message--delete" aria-hidden="true"></i>
-                    </li>
-          }, this)}
-        </ul>
+        <MessageInput handleSubmitForm={this.handleSubmitForm}/>
+        <MessageList getMessages={this.getMessages} handleMessageDelete={this.handleMessageDelete}/>
       </article>
     )
   }
