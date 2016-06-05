@@ -7,7 +7,7 @@ import Serialize from 'form-serialize'
 export default React.createClass({
   getDefaultProps(){
     return {
-      userSource: "http://tiny-tiny.herokuapp.com/collections/paullazo_chat_users"
+      userSource: "https://tiny-tiny.herokuapp.com/collections/paullazo_chat_users"
     }
   },
   handleSignUpForm(e){
