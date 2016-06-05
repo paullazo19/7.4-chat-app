@@ -16,8 +16,8 @@ export default React.createClass({
   },
   getDefaultProps(){
     return {
-      messageSource: "http://tiny-tiny.herokuapp.com/collections/paullazo_chat_messages",
-      userSource: "http://tiny-tiny.herokuapp.com/collections/paullazo_chat_users"
+      messageSource: "https://tiny-tiny.herokuapp.com/collections/paullazo_chat_messages",
+      userSource: "https://tiny-tiny.herokuapp.com/collections/paullazo_chat_users"
     }
   },
   getMessages(){

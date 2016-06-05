@@ -13,7 +13,7 @@ export default React.createClass({
   },
   getDefaultProps(){
     return {
-      messageSource: "http://tiny-tiny.herokuapp.com/collections/paullazo_chat_messages"
+      messageSource: "https://tiny-tiny.herokuapp.com/collections/paullazo_chat_messages"
     }
   },
   handleSubmitForm(e){
