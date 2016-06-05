@@ -17,7 +17,6 @@ export default React.createClass({
     }
   },
   handleSubmitForm(e){
-    console.log(this.props.messageSource);
     e.preventDefault();
     var serializedForm = Serialize(this.refs.messageForm, {hash: true})
     $.post(this.props.messageSource, serializedForm, (resp)=> {

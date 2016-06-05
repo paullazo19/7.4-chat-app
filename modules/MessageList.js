@@ -6,6 +6,13 @@ import App from './App'
 import Chat from './Chat'
 
 export default React.createClass({
+  getInitialState(){
+    return {
+      messages: [],
+      users: [],
+      latestUser: ""
+    }
+  },
   getDefaultProps(){
     return  {
       messageSource: "http://tiny-tiny.herokuapp.com/collections/paullazo_chat_messages"
@@ -14,7 +21,7 @@ export default React.createClass({
   render() {
     return (
       <ul className="log">
-        <li className="log__message">
+        <li className="log__message--static">
           <span className="log__guest">guest 1</span><span className="log__newChannel">joined #new-channel</span>
         </li>
         {this.props.messages.map((message, i)=> {

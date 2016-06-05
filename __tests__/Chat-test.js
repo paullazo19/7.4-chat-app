@@ -23,10 +23,4 @@ describe('Chat component', ()=> {
     expect(MessageInput.mock.calls.length).toBe(1);
   });
 
-  it('handles state change for message input', ()=> {
-    // call handle submit form function
-    appRendered.handleSubmitForm();
-    expect(appRendered.state.messages).toBeDefined();
-  });
-
 });

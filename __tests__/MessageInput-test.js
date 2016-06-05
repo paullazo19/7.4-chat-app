@@ -1,4 +1,4 @@
-// __tests__/CheckboxWithLabel-test.js
+// __tests__/message input-test.js
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -23,5 +23,10 @@ describe('Message input', ()=> {
     var messageInput = TestUtils.findRenderedDOMComponentWithClass(appRendered, "log__message--input");
     // assert it has text
     expect(messageInput).toBeDefined();
+  });
+
+  it('handles state change for message input', ()=> {
+
+    expect(appRendered.state.messages).toBeDefined();
   });
 });

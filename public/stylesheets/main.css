@@ -91,6 +91,10 @@ html {
   padding-left: 1rem;
   width: 100%; }
 
+.log__message--static {
+  list-style: none;
+  margin-bottom: 1rem; }
+
 .log__message {
   list-style: none;
   margin-bottom: 1rem; }
